@@ -1,38 +1,66 @@
-from collections import namedtuple
-import altair as alt
-import math
-import pandas as pd
+
+Conversation opened. 1 unread message.
+
+Skip to content
+Using Gmail with screen readers
+1 of 10
+inputs streamlit
+Inbox
+Juliette Mayorga
+	
+Attachments10:46 PM (40 minutes ago)
+	
+to me
+
+Attachments area
+	
+	
+	
+
 import streamlit as st
 
-"""
-# Welcome to Streamlit!!!!asdf
+st.set_page_config(
+    page_title='Training 3',
+    layout='wide'
+)
 
-Edit `/streamlit_app.py` to customize this app to your heart's desire :heart:
+def two_columns():
+    return st.columns(2)
 
-If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
-forums](https://discuss.streamlit.io).
+options = ['abc', 'def', 'ghi', 123, 456, '789']
 
-In the meantime, below is an example of what you can do with just a few lines of code:
-"""
+input_objects = [
+    "st.selectbox('selectbox', options)",
+    "st.multiselect('multiselect', options)",
+    "st.radio('radio', options)",
+    "st.button('button')",
+    "st.checkbox('checkbox')",
+    "st.slider('slider')",
+    "st.select_slider('select_slider', options)",
+    "st.text_input('text_input')",
+    "st.number_input('number_input')",
+    "st.text_area('text_area')",
+    "st.date_input('date_input')",
+    "st.time_input('time_input')",
+    "st.color_picker('color_picker')",
+    "st.file_uploader('file_uploader')",
+    "st.download_button('download_button', 'downloaded')"
+]
 
+st.header("Input Objects")
 
-with st.echo(code_location='below'):
-    total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
-    num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
+col1, col2 = two_columns()
+col1.markdown('#### Object')
+col2.markdown('#### Stored Value')
 
-    Point = namedtuple('Point', 'x y')
-    data = []
+for input_obj in input_objects:
+    col1, col2 = two_columns()
+    
+    with col1:
+        value = eval(input_obj)
+    with col2:
+        '.'
+        value
 
-    points_per_turn = total_points / num_turns
-
-    for curr_point_num in range(total_points):
-        curr_turn, i = divmod(curr_point_num, points_per_turn)
-        angle = (curr_turn + 1) * 2 * math.pi * i / points_per_turn
-        radius = curr_point_num / total_points
-        x = radius * math.cos(angle)
-        y = radius * math.sin(angle)
-        data.append(Point(x, y))
-
-    st.altair_chart(alt.Chart(pd.DataFrame(data), height=500, width=500)
-        .mark_circle(color='#0068c9', opacity=0.5)
-        .encode(x='x:Q', y='y:Q'))
+inputs.py
+Displaying inputs.py.
