@@ -1,22 +1,3 @@
-
-Conversation opened. 1 unread message.
-
-Skip to content
-Using Gmail with screen readers
-1 of 10
-inputs streamlit
-Inbox
-Juliette Mayorga
-	
-Attachments10:46 PM (40 minutes ago)
-	
-to me
-
-Attachments area
-	
-	
-	
-
 import streamlit as st
 
 st.set_page_config(
@@ -61,6 +42,3 @@ for input_obj in input_objects:
     with col2:
         '.'
         value
-
-inputs.py
-Displaying inputs.py.
